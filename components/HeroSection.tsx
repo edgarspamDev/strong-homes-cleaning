@@ -7,8 +7,10 @@ export default function HeroSection() {
   const [allowMotion, setAllowMotion] = useState(true);
   const [videoError, setVideoError] = useState(false);
   const base = useMemo(() => getBase(), []);
-  const videoSrc = `${base}StrongHomesHero_v01.mp4`;
-  const posterSrc = `${base}logo-icon.svg`;
+  // Video path - in dev mode use absolute path, in production use relative
+  const isDev = import.meta.env.DEV;
+  const videoSrc = isDev ? '/StrongHomesHero_v01.mp4' : `${base}StrongHomesHero_v01.mp4`;
+  const posterSrc = isDev ? '/logo-icon.svg' : `${base}logo-icon.svg`;
   const badgeItems = [
     { icon: Shield, label: 'Vetted Local Crews' },
     { icon: Star, label: 'Quality Checklist' },
