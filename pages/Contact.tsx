@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { SeoHead } from '../SeoHead';
 import {
@@ -8,6 +8,7 @@ import {
   type ContactFormData,
 } from '../utils/security';
 import { BookingEmbed } from '../components/BookingEmbed';
+import { BUSINESS, LINKS, FORM, getFormspreeUrl } from '../utils/config';
 
 export default function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -23,8 +24,9 @@ export default function Contact() {
   const [rateLimitError, setRateLimitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formStartTime, setFormStartTime] = useState<number>(Date.now());
-  const bookingUrl = import.meta.env.VITE_CALENDLY_URL as string | undefined;
-  const MIN_FORM_TIME_MS = 700; // Anti-bot friction
+  const bookingUrl = LINKS.bookingUrl;
+  const formspreeUrl = getFormspreeUrl(LINKS.contactFormspreeId);
+  const MIN_FORM_TIME_MS = FORM.minFillMs; // Anti-bot friction
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -70,25 +72,28 @@ export default function Contact() {
       return;
     }
 
+    if (!formspreeUrl) {
+      setErrors({ submit: 'Form temporarily unavailable. Please call or email us directly.' });
+      return;
+    }
+
     recordSubmitAttempt();
     setIsSubmitting(true);
 
     try {
-      // Submit to FormSubmit.co (no signup required - sends to business email)
-      const response = await fetch('https://formsubmit.co/ajax/info@stronghomescleaning.com', {
+      const response = await fetch(formspreeUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           message: formData.message,
-          _honey: formData._gotcha, // Honeypot (FormSubmit uses _honey)
+          _gotcha: formData._gotcha, // Honeypot
           _subject: `New Contact Form: ${formData.name}`,
-          _template: 'table',
         }),
       });
 
@@ -98,18 +103,19 @@ export default function Contact() {
 
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '', _gotcha: '' });
+      setFormStartTime(Date.now());
     } catch (error) {
-      setErrors({ submit: 'Something went wrong. Please try again or call us at (219) 615-9477.' });
+      setErrors({ submit: `Something went wrong. Please try again or call us at ${BUSINESS.phoneDisplay}.` });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const infoItems = [
-    { icon: Phone, title: 'Phone', value: '(219) 615-9477', href: 'tel:2196159477' },
-    { icon: Mail, title: 'Email', value: 'info@stronghomescleaning.com', href: 'mailto:info@stronghomescleaning.com' },
-    { icon: Clock, title: 'Hours', value: 'Mon–Sat: 8am–6pm' },
-    { icon: MapPin, title: 'Service Area', value: 'Lake & Porter Counties, Indiana' },
+    { icon: Phone, title: 'Phone', value: BUSINESS.phoneDisplay, href: BUSINESS.phoneHref },
+    { icon: Mail, title: 'Email', value: BUSINESS.email, href: `mailto:${BUSINESS.email}` },
+    { icon: Clock, title: 'Hours', value: BUSINESS.hours },
+    { icon: MapPin, title: 'Service Area', value: BUSINESS.serviceArea },
   ];
 
   return (
@@ -244,7 +250,7 @@ export default function Contact() {
                       placeholder="(219) 123-4567"
                     />
                     <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
-                      <p className="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1">📱 SMS/Call Consent</p>
+                      <p className="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1">ðŸ“± SMS/Call Consent</p>
                       <p className="text-xs text-blue-800 leading-relaxed">
                         By entering your phone number, you agree that StrongHomes may contact you via phone call or text message about your inquiry, scheduling, or reminders. Standard message and data rates may apply. You can opt out anytime by texting STOP or calling (219) 615-9477.
                       </p>
@@ -287,8 +293,9 @@ export default function Contact() {
                   >
                     {isSubmitting ? (
                       <>
-                        <span className="inline-block animate-spin">⏳</span>
-                        Sending...
+                        <span className="h-4 w-4 rounded-full border-2 border-white/40 border-t-transparent animate-spin" aria-hidden="true"></span>
+                    <span className="sr-only">Sending</span>
+                    Sending...
                       </>
                     ) : (
                       'Send Message'
@@ -328,3 +335,5 @@ export default function Contact() {
     </>
   );
 }
+
+

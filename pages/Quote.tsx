@@ -10,6 +10,7 @@ import {
   type QuoteFormData,
 } from '../utils/security';
 import { BookingEmbed } from '../components/BookingEmbed';
+import { BUSINESS, LINKS, FORM, getFormspreeUrl } from '../utils/config';
 
 type Frequency = { value: string; label: string; savings?: string };
 
@@ -22,7 +23,7 @@ export default function Quote() {
   const [selectedCity, setSelectedCity] = useState('');
   const [formStartTime, setFormStartTime] = useState<number>(Date.now());
   const navigate = useNavigate();
-  const MIN_FORM_TIME_MS = 700; // Anti-bot friction: 700ms minimum
+  const MIN_FORM_TIME_MS = FORM.minFillMs; // Anti-bot friction: 700ms minimum
 
   const [formData, setFormData] = useState<QuoteFormData>({
     zipCode: '',
@@ -54,7 +55,8 @@ export default function Quote() {
     { value: 'biweekly', label: 'Bi-Weekly', savings: 'Save 10%' },
     { value: 'monthly', label: 'Monthly', savings: 'Save 5%' },
   ];
-  const bookingUrl = import.meta.env.VITE_CALENDLY_URL as string | undefined;
+  const bookingUrl = LINKS.bookingUrl;
+  const formspreeUrl = getFormspreeUrl(LINKS.quoteFormspreeId);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -162,6 +164,11 @@ export default function Quote() {
       return;
     }
 
+    if (!formspreeUrl) {
+      setErrors({ submit: 'Form temporarily unavailable. Please call or email us directly.' });
+      return;
+    }
+
     // Record attempt for rate limiting
     recordSubmitAttempt();
 
@@ -169,12 +176,11 @@ export default function Quote() {
     setIsSubmitting(true);
 
     try {
-      // Submit to FormSubmit.co (no signup required - sends to business email)
-      const response = await fetch('https://formsubmit.co/ajax/info@stronghomescleaning.com', {
+      const response = await fetch(formspreeUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
         body: JSON.stringify({
           name: formData.name,
@@ -185,9 +191,8 @@ export default function Quote() {
           bedrooms: formData.bedrooms,
           bathrooms: formData.bathrooms,
           frequency: formData.frequency,
-          _honey: formData._gotcha, // Honeypot (FormSubmit uses _honey)
+          _gotcha: formData._gotcha, // Honeypot
           _subject: `New Quote Request: ${formData.name} - ${formData.serviceType}`,
-          _template: 'table',
         }),
       });
 
@@ -200,7 +205,7 @@ export default function Quote() {
       navigate('/');
     } catch (error) {
       // Handle submission error without leaking implementation details
-      setErrors({ submit: 'Something went wrong. Please try again or call us at (219) 615-9477.' });
+      setErrors({ submit: `Something went wrong. Please try again or call us at ${BUSINESS.phoneDisplay}.` });
       setIsSubmitting(false);
     }
   };

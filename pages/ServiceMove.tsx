@@ -1,4 +1,4 @@
-import { CheckCircle, Home, Shield, ArrowRight } from 'lucide-react';
+﻿import { CheckCircle, Home, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SeoHead } from '../SeoHead';
 
@@ -17,7 +17,10 @@ export default function ServiceMove() {
       <SeoHead />
       <header className="relative overflow-hidden bg-[#0B1120] text-white">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/85 to-[#0B1120]" />
-        <div className="absolute inset-0 opacity-30" style={{ background: 'radial-gradient(60% 60% at 15% 10%, rgba(197,160,101,0.22), transparent)' }} />
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{ background: 'radial-gradient(60% 60% at 15% 10%, rgba(197,160,101,0.22), transparent)' }}
+        />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full text-sm font-semibold mb-4">
             <Shield size={16} className="text-[#C5A065]" />
@@ -64,7 +67,9 @@ export default function ServiceMove() {
             <div className="bg-[#0B1120] text-white rounded-2xl p-6 shadow-lg shadow-black/20">
               <p className="text-sm text-slate-200 mb-2">Moving soon?</p>
               <h3 className="text-2xl font-bold mb-4">Book your move clean</h3>
-              <p className="text-sm text-slate-200 mb-5">Vetted teams with supplies; appliance and cabinet interiors included.</p>
+              <p className="text-sm text-slate-200 mb-5">
+                Vetted teams with supplies; fully insured; appliance and cabinet interiors included.
+              </p>
               <div className="space-y-3">
                 <Link
                   to="/quote"

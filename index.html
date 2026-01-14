@@ -6,10 +6,13 @@
     <title>Strong Homes Cleaning | NWI</title>
     <meta name="description" content="Reliable residential cleaning in Northwest Indiana. Serving Lake & Porter counties." />
 
-    <!-- Security Headers (CSP Fallback) -->
-    <!-- Primary headers should be served by Hostinger via public/_headers -->
+    <!-- Security Headers (fallback; primary set via hosting) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; upgrade-insecure-requests"
+    />
 
     <!-- Tailwind CSS is now bundled locally via src/index.css for better security -->
 </head>

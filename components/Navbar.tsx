@@ -21,11 +21,11 @@ export default function Navbar() {
   }, [location.pathname]);
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/85 border-b border-slate-200 shadow-sm">
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/85 border-b border-slate-200 shadow-sm" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="StrongHomes Cleaning" className="h-10 w-auto" loading="lazy" />
+          <Link to="/" className="flex items-center space-x-3" aria-label="StrongHomes Cleaning - Home">
+            <img src={logo} alt="StrongHomes Cleaning logo" className="h-10 w-auto" loading="lazy" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -33,6 +33,7 @@ export default function Navbar() {
               <Link
                 key={item.to}
                 to={item.to}
+                aria-current={isActive(item.to) ? 'page' : undefined}
                 className={`font-medium transition-colors ${
                   isActive(item.to) ? 'text-[#0B1120]' : 'text-slate-600'
                 } hover:text-[#947638]`}
@@ -42,9 +43,10 @@ export default function Navbar() {
             ))}
             <a
               href="tel:2196159477"
+              aria-label="Call us at (219) 615-9477"
               className="flex items-center space-x-2 text-slate-700 hover:text-[#947638] font-semibold transition"
             >
-              <Phone size={18} className="text-[#C5A065]" />
+              <Phone size={18} className="text-[#C5A065]" aria-hidden="true" />
               <span>(219) 615-9477</span>
             </a>
             <Link
@@ -58,14 +60,16 @@ export default function Navbar() {
           <button
             className="md:hidden text-slate-800 p-2 rounded-md hover:bg-slate-100"
             onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-3 border-t border-slate-200 pt-3">
+          <div id="mobile-menu" className="md:hidden pb-4 space-y-3 border-t border-slate-200 pt-3">
             {NAV_LINKS.map((item) => (
               <Link
                 key={item.to}

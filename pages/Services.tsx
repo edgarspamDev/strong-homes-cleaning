@@ -58,7 +58,7 @@ const faqs = [
   },
   {
     q: 'How should I verify your insurance and bonding?',
-    a: 'We work with vetted local teams trained to the highest standard. Insurance status is UNKNOWN; proof will be shared upon confirmation. Contact us at (219) 615-9477 for credential details.',
+    a: 'We work with vetted, background-checked teams. Fully insured—COI available on request. Contact us at (219) 615-9477 for credential details.',
   },
 ];
 

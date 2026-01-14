@@ -1,22 +1,40 @@
+/**
+ * Centralized business configuration
+ * Update these values in one place to change them across the entire site
+ */
 export const BUSINESS = {
-  name: 'Strong Homes Cleaning',
+  name: 'StrongHomes Cleaning',
   phoneDisplay: '(219) 615-9477',
   phoneHref: 'tel:2196159477',
   email: 'info@stronghomescleaning.com',
-  hours: 'Mon-Sat: 8am-6pm',
-  serviceArea: 'Lake & Porter Counties, Indiana',
-};
+  emailHref: 'mailto:info@stronghomescleaning.com',
+  hours: 'Mon–Sat: 8am–6pm',
+  serviceArea: 'Lake & Porter Counties, IN',
+  // FormSubmit.co endpoint - sends directly to business email
+  formSubmitUrl: 'https://formsubmit.co/ajax/info@stronghomescleaning.com',
+} as const;
 
 export const LINKS = {
   bookingUrl: import.meta.env.VITE_CALENDLY_URL ?? '',
   contactFormspreeId: import.meta.env.VITE_FORMSPREE_CONTACT_ID ?? '',
   quoteFormspreeId: import.meta.env.VITE_FORMSPREE_QUOTE_ID ?? '',
-};
+} as const;
 
-export const FORM = {
-  minFillMs: 700,
-};
-
-export function getFormspreeUrl(formId: string | undefined) {
+export function getFormspreeUrl(formId: string | undefined): string | null {
   return formId ? `https://formspree.io/f/${formId}` : null;
 }
+
+export const FORM = {
+  minFillMs: 700, // Anti-bot friction: minimum time before form can submit
+} as const;
+
+export const SERVICE_CITIES = [
+  'Hammond',
+  'Hobart',
+  'Merrillville',
+  'Crown Point',
+  'Valparaiso',
+  'Schererville',
+  'St. John',
+  'Lowell',
+] as const;
