@@ -64,7 +64,7 @@ export default function ServiceStandard() {
             <div className="bg-[#0B1120] text-white rounded-2xl p-6 shadow-lg shadow-black/20">
               <p className="text-sm text-slate-200 mb-2">Ready for a cleaner routine?</p>
               <h3 className="text-2xl font-bold mb-4">Book your recurring visit</h3>
-              <p className="text-sm text-slate-200 mb-5">Vetted crews with supplies provided. Same-day reminders included. Insurance status: UNKNOWN.</p>
+              <p className="text-sm text-slate-200 mb-5">Vetted crews with supplies provided. Same-day reminders included.</p>
               <div className="space-y-3">
                 <Link
                   to="/quote"

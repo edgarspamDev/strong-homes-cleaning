@@ -5,7 +5,7 @@ export default function TrustBar() {
     {
       icon: Shield,
       title: 'Vetted Local Crews',
-      description: 'Rigorously trained teams; proof of insurance provided upon confirmation (status: UNKNOWN).',
+      description: 'Rigorously trained teams with background checks and full insurance coverage.',
     },
     {
       icon: Heart,

@@ -167,15 +167,31 @@ export default function Quote() {
 
     // Set submitting state
     setIsSubmitting(true);
-    const start = Date.now();
 
     try {
-      // In a real implementation, you would send validationResult.sanitized to your backend
-      await new Promise((resolve) => setTimeout(resolve, 520));
+      // Submit to Formspree (replace YOUR_QUOTE_FORM_ID with actual ID from formspree.io)
+      const response = await fetch('https://formspree.io/f/YOUR_QUOTE_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          zipCode: formData.zipCode,
+          serviceType: formData.serviceType,
+          bedrooms: formData.bedrooms,
+          bathrooms: formData.bathrooms,
+          frequency: formData.frequency,
+          _gotcha: formData._gotcha, // Honeypot
+          _subject: `New Quote Request: ${formData.name} - ${formData.serviceType}`,
+        }),
+      });
 
-      const elapsed = Date.now() - start;
-      if (elapsed < 700) {
-        await new Promise((resolve) => setTimeout(resolve, 700 - elapsed));
+      if (!response.ok) {
+        throw new Error('Form submission failed');
       }
 
       // Success - navigate home

@@ -91,16 +91,7 @@ export const SeoHead: React.FC<{ override?: Partial<SeoConfig> }> = ({ override 
     image: ogImageUrl,
     telephone: '(219) 615-9477',
     areaServed: ['Lake County, IN', 'Porter County, IN', 'Hammond', 'Hobart', 'Merrillville', 'Crown Point', 'Valparaiso', 'Schererville', 'St. John', 'Lowell'],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'UNKNOWN',
-      addressLocality: 'Lake County',
-      addressRegion: 'IN',
-      postalCode: 'UNKNOWN',
-      addressCountry: 'US',
-    },
     openingHours: ['Mo-Sa 08:00-18:00'],
-    sameAs: [],
     description: config.description,
   };
 

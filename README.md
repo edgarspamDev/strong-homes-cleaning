@@ -74,9 +74,9 @@ npm run preview      # serve the production build locally
 
 ## Documentation
 - SECURITY_AUDIT_REPORT.md - security audit details
+- SECURITY.md - security posture, secrets, and ops practices
 - HOSTINGER_DEPLOYMENT.md - deployment guide
 - TAILWIND_MIGRATION.md - Tailwind bundling notes
 
 ## License
 MIT License - see LICENSE.
-

@@ -73,14 +73,26 @@ export default function Contact() {
     recordSubmitAttempt();
     setIsSubmitting(true);
 
-    const start = Date.now();
-
     try {
-      await new Promise(resolve => setTimeout(resolve, 600));
+      // Submit to Formspree (replace YOUR_FORM_ID with actual ID from formspree.io)
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _gotcha: formData._gotcha, // Honeypot
+          _subject: `New Contact Form: ${formData.name}`,
+        }),
+      });
 
-      const elapsed = Date.now() - start;
-      if (elapsed < 700) {
-        await new Promise(resolve => setTimeout(resolve, 700 - elapsed));
+      if (!response.ok) {
+        throw new Error('Form submission failed');
       }
 
       setSubmitSuccess(true);
