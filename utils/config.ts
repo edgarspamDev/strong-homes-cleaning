@@ -8,7 +8,7 @@ export const BUSINESS = {
   phoneHref: 'tel:2196159477',
   email: 'info@stronghomescleaning.com',
   emailHref: 'mailto:info@stronghomescleaning.com',
-  hours: 'Mon–Sat: 8am–6pm',
+  hours: 'Mon-Sat: 8am-6pm',
   serviceArea: 'Lake & Porter Counties, IN',
   // FormSubmit.co endpoint - sends directly to business email
   formSubmitUrl: 'https://formsubmit.co/ajax/info@stronghomescleaning.com',
