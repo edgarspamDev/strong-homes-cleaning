@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Shield } from 'lucide-react';
 import { useMemo } from 'react';
 import { getBase } from '../utils/base';
 
@@ -26,8 +26,12 @@ export default function Footer() {
           <div className="space-y-4">
             <img src={logo} alt="StrongHomes Cleaning" className="h-12 shrink-0" loading="lazy" />
             <p className="text-slate-300 text-sm leading-relaxed">
-              Locally owned crews delivering premium cleaning across Lake & Porter Counties with supplies provided for every visit.
+              Locally owned crews delivering premium cleaning across Lake & Porter Counties.
             </p>
+            <div className="flex items-center gap-2 text-[#C5A065] font-semibold text-sm bg-[#C5A065]/10 w-fit px-3 py-1 rounded-full border border-[#C5A065]/20">
+              <Shield size={14} />
+              <span>Insured & Bonded</span>
+            </div>
             <Link to="/quote" className="inline-flex items-center gap-2 text-[#C5A065] font-semibold hover:text-white transition-colors">
               Get a free estimate →
             </Link>

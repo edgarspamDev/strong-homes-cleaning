@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" fill="none">
+  <!-- Icon Mark -->
+  <path d="M35 12L15 28H20V48H50V28H55L35 12Z" fill="#C5A065"/>
+  <path d="M35 22L28 28H30V42H40V28H42L35 22Z" fill="#FFFFFF"/>
+  <path d="M45 15L52 22" stroke="#C5A065" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 12L56 16" stroke="#C5A065" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Wordmark -->
+  <text x="70" y="38" font-family="'Outfit', 'Inter', sans-serif" font-weight="800" font-size="32" fill="#0B1120" letter-spacing="-0.5">STRONG<tspan fill="#C5A065">HOMES</tspan></text>
+  <text x="71" y="52" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#64748B" letter-spacing="3.5">CLEANING</text>
+</svg>

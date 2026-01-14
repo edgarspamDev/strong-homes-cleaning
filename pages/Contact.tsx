@@ -331,7 +331,7 @@ export default function Contact() {
               <a
                 href={bookingUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-lg border border-[#C5A065] px-4 py-2 text-sm font-semibold text-[#0B1120] transition hover:bg-[#C5A065]/15"
               >
                 Open calendar
