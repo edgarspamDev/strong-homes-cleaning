@@ -60,28 +60,23 @@ const SEO_MAP: Record<string, SeoConfig> = {
   },
 };
 
-const buildCanonical = (canonicalPath: string) => {
-  const base = getBase();
-  const origin = typeof window !== 'undefined' ? window.location.origin : '';
-  const pathWithoutTrailingSlash = typeof window !== 'undefined' ? window.location.pathname.replace(/\/$/, '') : '';
-  const cleanPath = canonicalPath.startsWith('/') ? canonicalPath.slice(1) : canonicalPath;
-  const hashPath = cleanPath ? `#/${cleanPath}` : '#/';
-  // Prefer origin + current path to respect subfolder hosting; fall back to base if origin unavailable.
-  return origin
-    ? `${origin}${pathWithoutTrailingSlash}${hashPath}`
-    : `${base}${cleanPath}`;
+const buildCanonical = () => {
+  return 'https://stronghomescleaning.com/';
 };
 
 export const SeoHead: React.FC<{ override?: Partial<SeoConfig> }> = ({ override }) => {
   const location = useLocation();
   const baseConfig = SEO_MAP[location.pathname] ?? SEO_MAP['/'];
   const config = { ...baseConfig, ...override };
-  const canonicalUrl = buildCanonical(config.canonicalPath);
+
+  // STRICT RULE: Canonical and OG URL must always be the root domain.
+  // Never usage index.html and never encourage sharing hash routes.
+  const canonicalUrl = buildCanonical();
   const base = getBase();
   const keywords =
     'Northwest Indiana cleaning, Lake County cleaning, Porter County cleaning, Hammond cleaning, Hobart cleaning, Merrillville cleaning, Crown Point cleaning, Valparaiso cleaning, Schererville cleaning, St. John cleaning, Lowell cleaning, home cleaning';
 
-  const ogImageUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}${base}og-image.svg`;
+  const ogImageUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}${base}og/og-home.png`;
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -90,7 +85,7 @@ export const SeoHead: React.FC<{ override?: Partial<SeoConfig> }> = ({ override 
     url: canonicalUrl,
     image: ogImageUrl,
     telephone: '(219) 615-9477',
-    email: 'info@stronghomescleaning.com',
+    email: 'hello@stronghomescleaning.com',
     areaServed: [
       {
         '@type': 'AdministrativeArea',
@@ -111,7 +106,7 @@ export const SeoHead: React.FC<{ override?: Partial<SeoConfig> }> = ({ override 
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
       telephone: '(219) 615-9477',
-      email: 'info@stronghomescleaning.com',
+      email: 'hello@stronghomescleaning.com',
       availableLanguage: 'en'
     },
     openingHoursSpecification: {

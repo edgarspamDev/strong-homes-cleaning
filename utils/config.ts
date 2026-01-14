@@ -15,7 +15,9 @@ export const BUSINESS = {
 } as const;
 
 export const LINKS = {
-  bookingUrl: import.meta.env.VITE_CALENDLY_URL ?? '',
+  bookingUrl: import.meta.env.VITE_CALENDLY_URL ?? 'https://calendly.com/hello-stronghomescleaning/cleaning-booking',
+  calendlyBooking: 'https://calendly.com/hello-stronghomescleaning/cleaning-booking',
+  calendlyPopupUrl: 'https://calendly.com/hello-stronghomescleaning/cleaning-booking?hide_event_type_details=1&hide_gdpr_banner=1&text_color=111111&primary_color=c9a24a',
   contactFormspreeId: import.meta.env.VITE_FORMSPREE_CONTACT_ID ?? '',
   quoteFormspreeId: import.meta.env.VITE_FORMSPREE_QUOTE_ID ?? '',
 } as const;

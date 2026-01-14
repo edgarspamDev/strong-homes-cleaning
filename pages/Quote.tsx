@@ -9,8 +9,7 @@ import {
   recordSubmitAttempt,
   type QuoteFormData,
 } from '../utils/security';
-import { BUSINESS, FORM, getFormspreeUrl, LINKS as CONFIG_LINKS } from '../utils/config';
-import { LINKS } from '../utils/links';
+import { BUSINESS, FORM, getFormspreeUrl, LINKS } from '../utils/config';
 
 export default function Quote() {
   const [step, setStep] = useState(1);
@@ -20,7 +19,7 @@ export default function Quote() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [rateLimitError, setRateLimitError] = useState<string | null>(null);
   const [selectedCity, setSelectedCity] = useState('');
-  const formspreeUrl = getFormspreeUrl(CONFIG_LINKS.quoteFormspreeId) || BUSINESS.formSubmitUrl;
+  const formspreeUrl = getFormspreeUrl(LINKS.quoteFormspreeId) || BUSINESS.formSubmitUrl;
 
   const [formData, setFormData] = useState<QuoteFormData>({
     zipCode: '',
@@ -376,14 +375,14 @@ export default function Quote() {
                   {step < 4 ? (
                     <button
                       type="button" onClick={handleNext} disabled={isValidatingZip}
-                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] transition disabled:bg-slate-300 flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] transition disabled:bg-slate-300 disabled:hover:bg-slate-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isValidatingZip ? <Loader2 className="animate-spin" size={18} /> : <>Next <ChevronRight size={18} /></>}
                     </button>
                   ) : (
                     <button
                       type="submit" disabled={isSubmitting}
-                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold hover:bg-[#0B1120]/90 transition disabled:bg-slate-400 flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold hover:bg-[#0B1120]/90 transition disabled:bg-slate-400 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-slate-400 flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : 'Get My Quote'}
                     </button>

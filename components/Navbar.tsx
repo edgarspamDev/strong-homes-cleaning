@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Menu, X } from 'lucide-react';
+import { Phone, Menu, X, Mail } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { getBase } from '../utils/base';
 
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const base = useMemo(() => getBase(), []);
-  const logo = `${base}logo-header.svg`;
+  const logo = `${base}brand/logo.svg`;
   const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
@@ -25,8 +25,8 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/85 border-b border-slate-200 shadow-sm" aria-label="Main navigation">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-3" aria-label="StrongHomes Cleaning - Home">
-            <img src={logo} alt="StrongHomes Cleaning logo" className="h-10 w-auto" loading="lazy" />
+          <Link to="/" className="flex items-center space-x-3 shrink-0" aria-label="StrongHomes Cleaning - Home">
+            <img src={logo} alt="StrongHomes Cleaning logo" className="h-10" loading="lazy" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -35,9 +35,8 @@ export default function Navbar() {
                 key={item.to}
                 to={item.to}
                 aria-current={isActive(item.to) ? 'page' : undefined}
-                className={`font-medium transition-colors ${
-                  isActive(item.to) ? 'text-[#0B1120]' : 'text-slate-600'
-                } hover:text-[#947638]`}
+                className={`font-medium transition-colors ${isActive(item.to) ? 'text-[#0B1120]' : 'text-slate-600'
+                  } hover:text-[#947638]`}
               >
                 {item.label}
               </Link>
@@ -49,6 +48,14 @@ export default function Navbar() {
             >
               <Phone size={18} className="text-[#C5A065]" aria-hidden="true" />
               <span>(219) 615-9477</span>
+            </a>
+            <a
+              href="mailto:hello@stronghomescleaning.com"
+              aria-label="Email us"
+              className="flex items-center space-x-2 text-slate-600 hover:text-[#947638] transition hidden lg:flex"
+            >
+              <Mail size={18} className="text-[#C5A065]" aria-hidden="true" />
+              <span>hello@stronghomescleaning.com</span>
             </a>
             <Link
               to="/quote"

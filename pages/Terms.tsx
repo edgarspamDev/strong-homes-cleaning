@@ -105,7 +105,7 @@ export default function Terms() {
             </p>
             <ul className="list-none space-y-2 text-slate-700 mb-6">
               <li><strong>Phone:</strong> (219) 615-9477</li>
-              <li><strong>Email:</strong> info@stronghomescleaning.com</li>
+              <li><strong>Email:</strong> hello@stronghomescleaning.com</li>
               <li><strong>Hours:</strong> Mon-Sat, 8am-6pm</li>
             </ul>
           </div>

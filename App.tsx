@@ -4,6 +4,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
+import ScrollToTop from './components/ScrollToTop';
 import { SeoHead } from './SeoHead';
 
 const Home = lazy(() => import('./pages/Home'));
@@ -22,6 +23,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <HashRouter>
+        <ScrollToTop />
         <SeoHead />
         <Navbar />
         <Suspense

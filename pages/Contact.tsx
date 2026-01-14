@@ -25,7 +25,7 @@ export default function Contact() {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [formStartTime, setFormStartTime] = useState<number>(Date.now());
   const bookingUrl = LINKS.bookingUrl;
-  const formspreeUrl = getFormspreeUrl(LINKS.contactFormspreeId);
+  const formspreeUrl = getFormspreeUrl(LINKS.contactFormspreeId) || BUSINESS.formSubmitUrl;
   const MIN_FORM_TIME_MS = FORM.minFillMs; // Anti-bot friction
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -143,7 +143,7 @@ export default function Contact() {
                 <h2 className="text-3xl font-bold text-[#0B1120] mb-2">Get in touch</h2>
                 <p className="text-slate-600 text-lg">Local crews serving Lake & Porter Counties. Expect a quick response.</p>
               </div>
-              
+
               <div className="space-y-4">
                 {infoItems.map((item) => {
                   const Icon = item.icon;
@@ -249,11 +249,24 @@ export default function Contact() {
                       className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#C5A065] transition ${errors.phone ? 'border-rose-300 bg-rose-50/30' : 'border-slate-200 bg-white hover:border-slate-300'}`}
                       placeholder="(219) 123-4567"
                     />
-                    <div className="mt-3 bg-blue-50 border border-blue-200 rounded-lg p-3">
-                      <p className="text-xs font-bold text-blue-900 mb-1 flex items-center gap-1">ðŸ“± SMS/Call Consent</p>
-                      <p className="text-xs text-blue-800 leading-relaxed">
-                        By entering your phone number, you agree that StrongHomes may contact you via phone call or text message about your inquiry, scheduling, or reminders. Standard message and data rates may apply. You can opt out anytime by texting STOP or calling (219) 615-9477.
-                      </p>
+                    <div className="mt-4 flex items-start gap-3">
+                      <div className="flex h-6 items-center">
+                        <input
+                          id="sms_consent"
+                          name="sms_consent"
+                          type="checkbox"
+                          defaultChecked
+                          className="h-4 w-4 rounded border-slate-300 text-[#C5A065] focus:ring-[#C5A065]"
+                        />
+                      </div>
+                      <div className="text-sm leading-6">
+                        <label htmlFor="sms_consent" className="font-medium text-slate-900">
+                          SMS/Call Consent
+                        </label>
+                        <p className="text-slate-500 text-xs text-justify">
+                          By checking this box, you agree that StrongHomes may contact you via phone or text about your inquiry. Reply STOP to opt out.
+                        </p>
+                      </div>
                     </div>
                     {errors.phone && (
                       <p className="mt-2 text-xs text-rose-600 font-medium" role="alert">{errors.phone}</p>
@@ -294,8 +307,8 @@ export default function Contact() {
                     {isSubmitting ? (
                       <>
                         <span className="h-4 w-4 rounded-full border-2 border-white/40 border-t-transparent animate-spin" aria-hidden="true"></span>
-                    <span className="sr-only">Sending</span>
-                    Sending...
+                        <span className="sr-only">Sending</span>
+                        Sending...
                       </>
                     ) : (
                       'Send Message'

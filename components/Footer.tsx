@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 import { useMemo } from 'react';
 import { getBase } from '../utils/base';
 
@@ -14,7 +14,7 @@ const cityLinks = ['Hammond', 'Hobart', 'Merrillville', 'Crown Point', 'Valparai
 
 export default function Footer() {
   const base = useMemo(() => getBase(), []);
-  const logo = `${base}logo-header.svg`;
+  const logo = `${base}brand/logo-light.svg`;
 
   return (
     <footer className="relative bg-[#0B1120] text-white pt-16 pb-10 overflow-hidden">
@@ -24,14 +24,14 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
-            <img src={logo} alt="StrongHomes Cleaning" className="h-12 w-auto" loading="lazy" />
+            <img src={logo} alt="StrongHomes Cleaning" className="h-12 shrink-0" loading="lazy" />
             <p className="text-slate-300 text-sm leading-relaxed">
               Locally owned crews delivering premium cleaning across Lake & Porter Counties with supplies provided for every visit.
             </p>
             <Link to="/quote" className="inline-flex items-center gap-2 text-[#C5A065] font-semibold hover:text-white transition-colors">
               Get a free estimate →
             </Link>
-            <p className="text-slate-400 text-xs">Free estimate covers labor and supplies; no obligation.</p>
+            <p className="text-slate-400 text-xs">Free estimate covers labor and supplies, no obligation.</p>
           </div>
 
           <div>
@@ -73,9 +73,9 @@ export default function Footer() {
               <Phone size={16} className="text-[#C5A065]" />
               <span>(219) 615-9477</span>
             </a>
-            <a href="mailto:info@stronghomescleaning.com" className="flex items-center gap-2 hover:text-white transition-colors">
+            <a href="mailto:hello@stronghomescleaning.com" className="flex items-center gap-2 hover:text-white transition-colors">
               <Mail size={16} className="text-[#C5A065]" />
-              <span>info@stronghomescleaning.com</span>
+              <span>hello@stronghomescleaning.com</span>
             </a>
             <div className="flex items-start gap-2">
               <MapPin size={16} className="text-[#C5A065] mt-0.5" />
@@ -83,17 +83,39 @@ export default function Footer() {
             </div>
             <div className="flex items-start gap-2">
               <Clock size={16} className="text-[#C5A065] mt-0.5" />
-              <span>Mon–Sat: 8am–6pm</span>
+              <span>Mon-Sat: 8am-6pm</span>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center text-slate-400 text-sm">
-          <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-center items-center mb-2 md:mb-3">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+        {/* Bottom section with social icons */}
+        <div className="border-t border-white/10 pt-8">
+          {/* Social Media Icons - centered */}
+          <div className="flex justify-center gap-4 mb-6">
+            <a
+              href="#"
+              aria-label="Follow us on Facebook"
+              className="h-10 w-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#C5A065]/20 hover:border-[#C5A065]/50 transition-colors"
+            >
+              <Facebook size={20} className="text-[#C5A065]" />
+            </a>
+            <a
+              href="#"
+              aria-label="Follow us on Instagram"
+              className="h-10 w-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#C5A065]/20 hover:border-[#C5A065]/50 transition-colors"
+            >
+              <Instagram size={20} className="text-[#C5A065]" />
+            </a>
           </div>
-          © 2026 StrongHomes Cleaning. All rights reserved.
+
+          {/* Links and copyright */}
+          <div className="text-center text-slate-400 text-sm">
+            <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-center items-center mb-3">
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            </div>
+            <p>© 2026 StrongHomes Cleaning. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>

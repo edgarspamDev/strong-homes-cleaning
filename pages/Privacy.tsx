@@ -77,7 +77,7 @@ export default function Privacy() {
               <li>Opt out of marketing communications (we only send service-related messages)</li>
             </ul>
             <p className="text-slate-700 leading-relaxed mb-6">
-              To exercise these rights, contact us at info@stronghomescleaning.com or (219) 615-9477.
+              To exercise these rights, contact us at hello@stronghomescleaning.com or (219) 615-9477.
             </p>
 
             <h2 className="text-2xl font-bold text-[#0B1120] mt-8 mb-4">Changes to This Policy</h2>
@@ -91,7 +91,7 @@ export default function Privacy() {
             </p>
             <ul className="list-none space-y-2 text-slate-700 mb-6">
               <li><strong>Phone:</strong> (219) 615-9477</li>
-              <li><strong>Email:</strong> info@stronghomescleaning.com</li>
+              <li><strong>Email:</strong> hello@stronghomescleaning.com</li>
               <li><strong>Service Area:</strong> Lake & Porter Counties, Indiana</li>
             </ul>
           </div>

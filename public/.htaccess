@@ -28,6 +28,9 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Redirect /index.html to / (clean URL)
+  RewriteRule ^index\.html$ / [R=301,L]
+
   # HashRouter support - serve index.html for all routes
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

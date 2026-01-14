@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "preview:open": "vite preview --host --port 4173 --open",
-    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "start": "npx http-server -p 8000 -o"
   },
   "dependencies": {

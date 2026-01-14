@@ -65,7 +65,7 @@ export function validatePhone(phone: string): ValidationResult {
   const trimmed = phone.trim();
 
   if (trimmed.length === 0) {
-    return { isValid: false, error: 'Phone number is required' };
+    return { isValid: true };
   }
 
   // Remove all non-digit characters for length check
@@ -385,8 +385,7 @@ export interface QuoteFormData {
  * Validates entire contact form
  * Returns sanitized data or validation errors
  */
-export function validateContactForm(data: ContactFormData):
-  { isValid: true; sanitized: ContactFormData } |
+export function validateContactForm(data: ContactFormData): { isValid: true; sanitized: ContactFormData } |
   { isValid: false; errors: Record<string, string> } {
 
   const errors: Record<string, string> = {};
@@ -438,8 +437,7 @@ export function validateContactForm(data: ContactFormData):
  * Validates entire quote form
  * Returns sanitized data or validation errors
  */
-export function validateQuoteForm(data: QuoteFormData):
-  { isValid: true; sanitized: QuoteFormData } |
+export function validateQuoteForm(data: QuoteFormData): { isValid: true; sanitized: QuoteFormData } |
   { isValid: false; errors: Record<string, string> } {
 
   const errors: Record<string, string> = {};

@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* Premium Typography */
+:root {
+  --font-heading: 'Outfit', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
 /* Tailwind v4 Theme Customization */
 @theme {
   --color-strong-blue: #0B1120;
