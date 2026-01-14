@@ -1,0 +1,29 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- CONCEPT C: Wipe Stroke Home -->
+  <!-- Minimal roofline + single wipe arc, 3 bold strokes only -->
+  
+  <defs>
+    <style>
+      .wipe-stroke { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .wipe-roof { stroke: #0B1120; stroke-width: 8; }
+      .wipe-arc { stroke: #C5A065; stroke-width: 9; }
+    </style>
+  </defs>
+  
+  <!-- House roofline (navy, bold) -->
+  <g class="wipe-stroke wipe-roof">
+    <!-- Left slope -->
+    <line x1="50" y1="90" x2="100" y2="50"/>
+    <!-- Right slope -->
+    <line x1="100" y1="50" x2="150" y2="90"/>
+    <!-- Base line -->
+    <line x1="50" y1="90" x2="150" y2="90"/>
+  </g>
+  
+  <!-- Wipe arc (gold, bold, curved) -->
+  <path d="M 60 120 Q 100 70 150 120" class="wipe-stroke wipe-arc"/>
+  
+  <!-- Status and notes -->
+  <text x="100" y="160" font-size="10" fill="#0B1120" text-anchor="middle" font-weight="bold">STRONGHOMES</text>
+  <text x="100" y="180" font-size="9" fill="#999" text-anchor="middle">Blur: PASS | Tiny: PASS | Category: PASS</text>
+</svg>

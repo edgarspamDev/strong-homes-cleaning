@@ -1,0 +1,53 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- CONCEPT A: Trust Seal -->
+  <!-- Circular badge with house silhouette and outer ring text -->
+  
+  <defs>
+    <style>
+      .trust-seal-circle { fill: none; stroke: #C5A065; stroke-width: 3; }
+      .trust-seal-house { fill: #0B1120; }
+      .trust-seal-text { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #0B1120; }
+      .trust-seal-star { fill: #C5A065; }
+    </style>
+  </defs>
+  
+  <!-- Outer circle ring (gold) -->
+  <circle cx="100" cy="100" r="95" class="trust-seal-circle"/>
+  
+  <!-- Inner circle ring (subtle) -->
+  <circle cx="100" cy="100" r="88" class="trust-seal-circle" stroke-width="1.5"/>
+  
+  <!-- House silhouette (center) -->
+  <g transform="translate(100, 95)">
+    <!-- Roof -->
+    <polygon points="0,-30 -35,0 35,0" class="trust-seal-house"/>
+    <!-- House body -->
+    <rect x="-30" y="0" width="60" height="40" class="trust-seal-house"/>
+    <!-- Door -->
+    <rect x="-10" y="15" width="20" height="25" fill="#C5A065"/>
+  </g>
+  
+  <!-- Top arc text (STRONGHOMES) -->
+  <path id="topArc" d="M 30,100 A 70,70 0 0,1 170,100" fill="none"/>
+  <text class="trust-seal-text" font-size="11" letter-spacing="1">
+    <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+      STRONGHOMES
+    </textPath>
+  </text>
+  
+  <!-- Star divider top -->
+  <g transform="translate(100, 20)">
+    <polygon points="0,-6 2,-2 6,-1 3,2 4,6 0,3 -4,6 -3,2 -6,-1 -2,-2" class="trust-seal-star"/>
+  </g>
+  
+  <!-- Bottom arc text (CLEANING) -->
+  <path id="bottomArc" d="M 170,100 A 70,70 0 0,1 30,100" fill="none"/>
+  <text class="trust-seal-text" font-size="11" letter-spacing="1">
+    <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+      CLEANING
+    </textPath>
+  </text>
+  
+  <!-- Status -->
+  <text x="100" y="185" font-size="10" fill="#666" text-anchor="middle">Blur: PASS | Tiny: PASS | Category: PASS</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg width="1500" height="500" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc">
+<title id="title">StrongHomes Cleaning Services Logo</title>
+<desc id="desc">Shield and home mark with StrongHomes Cleaning Services wordmark</desc>
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C5A065"/>
+    <stop offset="100%" stop-color="#947638"/>
+  </linearGradient>
+</defs>
+<rect width="600" height="200" fill="#0B1120" rx="12"/>
+<g transform="translate(40 20)">
+  <path d="M90 10H210L198 104C193 140 162 177 150 182C138 177 107 140 102 104L90 10Z" stroke="url(#gold)" stroke-width="9" fill="none" stroke-linejoin="round"/>
+  <path d="M96 76L150 38L204 76" stroke="url(#gold)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M120 94C136 74 164 74 180 94" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+  <rect x="142" y="78" width="16" height="16" fill="url(#gold)" rx="2"/>
+  <path d="M148 30L160 18" stroke="url(#gold)" stroke-width="6" stroke-linecap="round"/>
+  <path d="M150 116C141 134 141 154 150 172" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+</g>
+<g fill="#F8FAFC" font-family="" letter-spacing="0.5" transform="translate(250 98)">
+  <text x="0" y="0" font-size="52" font-weight="700">StrongHomes</text>
+  <text x="2" y="32" font-size="24" font-weight="500" fill="#CBD5E1">Cleaning Services</text>
+</g>
+</svg>

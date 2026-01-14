@@ -1,0 +1,79 @@
+# Security Headers for Strong Homes Cleaning
+# Implements OWASP Top 10 best practices (A05: Security Misconfiguration)
+# Hostinger-compatible .htaccess configuration
+
+<IfModule mod_headers.c>
+  # Prevent MIME type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Control referrer information
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Prevent clickjacking attacks
+  Header always set X-Frame-Options "DENY"
+
+  # Restrict browser features/APIs
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=()"
+
+  # Content Security Policy - Strict but allows Vite static assets
+  # Tailwind is now bundled locally (no CDN needed)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'self'; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+</IfModule>
+
+# Enable HTTPS redirect (if SSL is configured on Hostinger)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # HashRouter support - serve index.html for all routes
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Deny access to backup and config files
+<FilesMatch "\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Enable GZIP compression for better performance
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # CSS and JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+
+  # HTML (short cache for dynamic updates)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

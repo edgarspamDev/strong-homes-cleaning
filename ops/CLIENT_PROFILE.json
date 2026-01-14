@@ -1,0 +1,34 @@
+{
+  "businessName": "Strong Homes Cleaning",
+  "website": "https://stronghomescleaning.com/",
+  "market": "Northwest Indiana (NWI)",
+  "counties": ["Lake", "Porter"],
+  "starterCities": [
+    "Hammond", "Hobart", "Merrillville", "Highland", "Munster", 
+    "Schererville", "Crown Point", "Dyer", "Griffith", "Portage", 
+    "Valparaiso", "Chesterton", "St. John"
+  ],
+  "services": {
+    "Standard Cleaning": true,
+    "Deep Cleaning": true,
+    "Move-In / Move-Out": true,
+    "Recurring": true,
+    "Airbnb / Short-Term Rental": "UNKNOWN",
+    "Light Commercial": true
+  },
+  "contact": {
+    "phone": "219-615-9477",
+    "email": "UNKNOWN",
+    "address": "UNKNOWN"
+  },
+  "pricing": {
+    "model": "Estimate Only",
+    "currency": "USD",
+    "depositRequired": "UNKNOWN"
+  },
+  "compliance": {
+    "insured": "UNKNOWN",
+    "bonded": "UNKNOWN",
+    "backgroundChecked": "UNKNOWN"
+  }
+}

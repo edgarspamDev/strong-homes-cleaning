@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* Tailwind v4 Theme Customization */
+@theme {
+  --color-strong-blue: #0B1120;
+  --color-strong-green: #10b981;
+  --color-brand-navy: #0B1120;
+  --color-brand-gold: #C5A065;
+  --color-bright-gold: #C5A065;
+  --color-dark-gold: #947638;
+  --color-darker-gold: #947638;
+  --color-soft-white: #F8FAFC;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Hero fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out;
+}

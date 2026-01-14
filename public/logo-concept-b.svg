@@ -1,0 +1,34 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="logo-title">
+  <title id="logo-title">StrongHomes Cleaning - Modern Monogram Logo</title>
+
+  <!-- Monogram Frame -->
+  <rect x="10" y="20" width="80" height="80" rx="8" stroke="#0B1120" stroke-width="3" fill="none"/>
+
+  <!-- Star Accent -->
+  <circle cx="82" cy="28" r="4" fill="#C5A065"/>
+
+  <!-- S Letter (overlapping monogram style) -->
+  <path d="M 30 45 Q 25 40, 30 35 L 50 35 Q 55 35, 55 40 Q 55 45, 50 45 L 40 45 Q 35 45, 35 50 Q 35 55, 40 55 L 60 55 Q 65 60, 60 65 L 40 65 Q 35 65, 35 60"
+        stroke="#0B1120"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- H Letter (integrated with S) -->
+  <path d="M 55 40 L 55 65 M 55 52.5 L 70 52.5 M 70 40 L 70 65"
+        stroke="#0B1120"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Wordmark: StrongHomes -->
+  <text x="105" y="65" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0B1120" letter-spacing="-0.5">
+    StrongHomes
+  </text>
+
+  <!-- Descriptor: Cleaning (smaller, lighter) -->
+  <text x="107" y="85" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="0.5">
+    CLEANING
+  </text>
+</svg>

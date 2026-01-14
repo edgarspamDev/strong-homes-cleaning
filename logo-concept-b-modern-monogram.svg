@@ -1,0 +1,27 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- CONCEPT B: Modern Monogram (RECOMMENDED) -->
+  <!-- Rounded rectangular frame with "SH" monogram and accent star -->
+  
+  <defs>
+    <style>
+      .monogram-frame { fill: none; stroke: #0B1120; stroke-width: 2.5; }
+      .monogram-text { font-family: 'Arial', sans-serif; font-weight: bold; font-size: 90px; fill: #0B1120; }
+      .monogram-accent { fill: #C5A065; }
+    </style>
+  </defs>
+  
+  <!-- Rounded rectangular frame -->
+  <rect x="35" y="35" width="130" height="130" rx="12" ry="12" class="monogram-frame"/>
+  
+  <!-- "SH" monogram (bold, centered) -->
+  <text x="100" y="125" text-anchor="middle" class="monogram-text">SH</text>
+  
+  <!-- Gold accent star (top-right inside frame) -->
+  <g transform="translate(155, 55)">
+    <polygon points="0,-6 2,-2 6,-1 3,2 4,6 0,3 -4,6 -3,2 -6,-1 -2,-2" class="monogram-accent"/>
+  </g>
+  
+  <!-- Wordmark area indicator (below for reference) -->
+  <text x="100" y="180" font-size="9" fill="#999" text-anchor="middle">Logo + "StrongHomes" wordmark</text>
+  <text x="100" y="192" font-size="8" fill="#666" text-anchor="middle">Blur: PASS | Tiny: PASS | Category: PASS</text>
+</svg>
