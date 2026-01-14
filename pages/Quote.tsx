@@ -96,8 +96,8 @@ export default function Quote() {
           bedrooms: formData.bedrooms,
           bathrooms: formData.bathrooms,
           frequency: formData.frequency,
+          _gotcha: formData._gotcha, // Honeypot field
           _subject: `Quote: ${formData.name} - ${formData.serviceType}`,
-          _captcha: 'false'
         }),
       });
       if (!res.ok) {
