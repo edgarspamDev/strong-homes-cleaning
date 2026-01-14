@@ -1,20 +1,20 @@
-# Strong Homes Cleaning - Website
+﻿# Strong Homes Cleaning - Website
 
 Professional cleaning services website for Lake & Porter Counties, Indiana. Built with React, TypeScript, and Tailwind CSS, fully hardened against OWASP Top 10 vulnerabilities.
 
-## 🔒 Security Features
+## ðŸ”’ Security Features
 
 This application has been comprehensively hardened with enterprise-grade security:
 
-- ✅ **OWASP Top 10 Compliance** - All applicable vulnerabilities addressed
-- ✅ **Input Validation & Sanitization** - All user inputs validated and sanitized
-- ✅ **Rate Limiting** - 3 submissions per 10 minutes (client-side)
-- ✅ **Honeypot Protection** - Anti-bot spam prevention
-- ✅ **ZIP Code Allowlist** - Service area enforcement (40 ZIP codes)
-- ✅ **Security Headers** - CSP, X-Frame-Options, HSTS, etc.
-- ✅ **No External CDN Dependencies** - Tailwind CSS bundled locally
-- ✅ **XSS Prevention** - No dangerouslySetInnerHTML usage
-- ✅ **HTTPS Enforcement** - Automatic redirect via .htaccess
+- âœ… **OWASP Top 10 Compliance** - All applicable vulnerabilities addressed
+- âœ… **Input Validation & Sanitization** - All user inputs validated and sanitized
+- âœ… **Rate Limiting** - 3 submissions per 10 minutes (client-side)
+- âœ… **Honeypot Protection** - Anti-bot spam prevention
+- âœ… **ZIP Code Allowlist** - Service area enforcement (40 ZIP codes)
+- âœ… **Security Headers** - CSP, X-Frame-Options, HSTS, etc.
+- âœ… **No External CDN Dependencies** - Tailwind CSS bundled locally
+- âœ… **XSS Prevention** - No dangerouslySetInnerHTML usage
+- âœ… **HTTPS Enforcement** - Automatic redirect via .htaccess
 
 **Security Grade**: A+ ([SecurityHeaders.com](https://securityheaders.com))
 
@@ -22,7 +22,7 @@ See [SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md) for full audit details.
 
 ---
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 ### Prerequisites
 
@@ -59,36 +59,36 @@ npm run preview
 
 ---
 
-## 📁 Project Structure
+## ðŸ“ Project Structure
 
 ```
 strong-homes-cleaning/
-├── pages/
-│   ├── Home.tsx           # Landing page with hero section
-│   ├── Services.tsx       # Services catalog
-│   ├── Quote.tsx          # Multi-step quote form (ZIP validated)
-│   └── Contact.tsx        # Contact form (rate limited)
-├── components/
-│   ├── Navbar.tsx         # Navigation header
-│   └── Footer.tsx         # Site footer
-├── utils/
-│   └── security.ts        # Validation, sanitization, rate limiting
-├── src/
-│   └── index.css          # Tailwind CSS bundle + custom theme
-├── public/
-│   ├── .htaccess          # Security headers (Hostinger)
-│   └── _headers           # Security headers (Netlify/Vercel)
-├── App.tsx                # HashRouter configuration
-├── index.tsx              # React app entry point
-├── index.html             # HTML template
-├── vite.config.ts         # Vite build configuration
-├── tailwind.config.js     # Tailwind CSS configuration
-└── postcss.config.js      # PostCSS plugins
+â”œâ”€â”€ pages/
+â”‚   â”œâ”€â”€ Home.tsx           # Landing page with hero section
+â”‚   â”œâ”€â”€ Services.tsx       # Services catalog
+â”‚   â”œâ”€â”€ Quote.tsx          # Multi-step quote form (ZIP validated)
+â”‚   â””â”€â”€ Contact.tsx        # Contact form (rate limited)
+â”œâ”€â”€ components/
+â”‚   â”œâ”€â”€ Navbar.tsx         # Navigation header
+â”‚   â””â”€â”€ Footer.tsx         # Site footer
+â”œâ”€â”€ utils/
+â”‚   â””â”€â”€ security.ts        # Validation, sanitization, rate limiting
+â”œâ”€â”€ src/
+â”‚   â””â”€â”€ index.css          # Tailwind CSS bundle + custom theme
+â”œâ”€â”€ public/
+â”‚   â”œâ”€â”€ .htaccess          # Security headers (Hostinger)
+â”‚   â””â”€â”€ _headers           # Security headers (Netlify/Vercel)
+â”œâ”€â”€ App.tsx                # HashRouter configuration
+â”œâ”€â”€ index.tsx              # React app entry point
+â”œâ”€â”€ index.html             # HTML template
+â”œâ”€â”€ vite.config.ts         # Vite build configuration
+â”œâ”€â”€ tailwind.config.js     # Tailwind CSS configuration
+â””â”€â”€ postcss.config.js      # PostCSS plugins
 ```
 
 ---
 
-## 🌐 Deployment
+## ðŸŒ Deployment
 
 ### Hostinger Deployment
 
@@ -110,10 +110,10 @@ strong-homes-cleaning/
 4. Enable SSL certificate in Hostinger control panel
 
 5. Test:
-   - ✅ All pages load
-   - ✅ Forms validate correctly
-   - ✅ Rate limiting works (3 per 10 min)
-   - ✅ Security headers present (`curl -I https://yourdomain.com`)
+   - âœ… All pages load
+   - âœ… Forms validate correctly
+   - âœ… Rate limiting works (3 per 10 min)
+   - âœ… Security headers present (`curl -I https://yourdomain.com`)
 
 ### Alternative Platforms
 
@@ -123,7 +123,7 @@ strong-homes-cleaning/
 
 ---
 
-## 🛡️ Security Implementation
+## ðŸ›¡ï¸ Security Implementation
 
 ### Form Protection
 
@@ -172,7 +172,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' h
 
 ---
 
-## 🎨 Tech Stack
+## ðŸŽ¨ Tech Stack
 
 **Frontend:**
 - React 19.2.3
@@ -194,7 +194,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' h
 
 ---
 
-## 📊 Performance
+## ðŸ“Š Performance
 
 **Bundle Sizes (gzipped):**
 - HTML: 0.64 KB
@@ -216,47 +216,47 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' h
 
 ---
 
-## 🧪 Testing
+## ðŸ§ª Testing
 
 ### Manual Testing Checklist
 
 **Navigation:**
-- ✅ All menu links work (Home, Services, Quote, Contact)
-- ✅ HashRouter URLs work (`/#/contact`, `/#/services`, etc.)
-- ✅ No 404 errors on direct route access
+- âœ… All menu links work (Home, Services, Quote, Contact)
+- âœ… HashRouter URLs work (`/#/contact`, `/#/services`, etc.)
+- âœ… No 404 errors on direct route access
 
 **Contact Form:**
-- ✅ Valid submission shows success message
-- ✅ Invalid email/phone shows error
-- ✅ Empty fields show validation errors
-- ✅ 4th submission within 10 min shows rate limit error
-- ✅ Honeypot field submission fails silently
+- âœ… Valid submission shows success message
+- âœ… Invalid email/phone shows error
+- âœ… Empty fields show validation errors
+- âœ… 4th submission within 10 min shows rate limit error
+- âœ… Honeypot field submission fails silently
 
 **Quote Form:**
-- ✅ Valid ZIP (46375) proceeds to step 2
-- ✅ Invalid ZIP (60601 Chicago) shows error
-- ✅ Out-of-area ZIP blocked at step 1
-- ✅ Form progress indicator updates
-- ✅ Back/Next navigation works
+- âœ… Valid ZIP (46375) proceeds to step 2
+- âœ… Invalid ZIP (60601 Chicago) shows error
+- âœ… Out-of-area ZIP blocked at step 1
+- âœ… Form progress indicator updates
+- âœ… Back/Next navigation works
 
 **Security Headers:**
 ```bash
 curl -I https://yourdomain.com
 ```
-- ✅ X-Content-Type-Options present
-- ✅ X-Frame-Options present
-- ✅ Content-Security-Policy present
-- ✅ HTTPS redirect works (HTTP → HTTPS)
+- âœ… X-Content-Type-Options present
+- âœ… X-Frame-Options present
+- âœ… Content-Security-Policy present
+- âœ… HTTPS redirect works (HTTP â†’ HTTPS)
 
 **Performance:**
-- ✅ No console errors
-- ✅ No CSP violations
-- ✅ All styles load correctly
-- ✅ No mixed content warnings
+- âœ… No console errors
+- âœ… No CSP violations
+- âœ… All styles load correctly
+- âœ… No mixed content warnings
 
 ---
 
-## 📝 Environment Notes
+## ðŸ“ Environment Notes
 
 ### Development vs Production
 
@@ -286,7 +286,7 @@ curl -I https://yourdomain.com
 
 ---
 
-## 🔧 Maintenance
+## ðŸ”§ Maintenance
 
 ### Regular Tasks
 
@@ -322,15 +322,15 @@ npm audit fix
 
 ---
 
-## 📖 Documentation
+## ðŸ“– Documentation
 
 - **[SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md)** - Full OWASP Top 10 audit
 - **[HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md)** - Deployment guide
-- **[TAILWIND_MIGRATION.md](TAILWIND_MIGRATION.md)** - Tailwind CDN → local bundle
+- **[TAILWIND_MIGRATION.md](TAILWIND_MIGRATION.md)** - Tailwind CDN â†’ local bundle
 
 ---
 
-## 🚨 Known Limitations
+## ðŸš¨ Known Limitations
 
 ### Client-Side Rate Limiting
 
@@ -347,7 +347,7 @@ Rate limiting is implemented using `localStorage`:
 
 ---
 
-## 🎯 Future Enhancements
+## ðŸŽ¯ Future Enhancements
 
 1. **Backend API:**
    - Email notifications for form submissions
@@ -372,13 +372,13 @@ Rate limiting is implemented using `localStorage`:
 
 ---
 
-## 📄 License
+## ðŸ“„ License
 
-Proprietary - Strong Homes Cleaning. All rights reserved.
+MIT License - see [LICENSE](LICENSE).
 
 ---
 
-## 🆘 Support
+## ðŸ†˜ Support
 
 **Technical Issues:**
 - Review documentation: SECURITY_AUDIT_REPORT.md, HOSTINGER_DEPLOYMENT.md
@@ -395,6 +395,8 @@ Proprietary - Strong Homes Cleaning. All rights reserved.
 
 ---
 
-**Deployment Status:** ✅ PRODUCTION READY
+**Deployment Status:** âœ… PRODUCTION READY
 
 Your Strong Homes Cleaning website is fully secured, optimized, and ready to deploy!
+# strong-homes-cleaning
+
