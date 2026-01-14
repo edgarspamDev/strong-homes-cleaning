@@ -8,19 +8,21 @@ export default function MobileStickyBar() {
   if (hide) return null;
 
   return (
-    <div className="md:hidden fixed bottom-4 inset-x-4 z-40 pointer-events-none">
-      <div className="pointer-events-auto bg-white shadow-xl shadow-black/10 border border-slate-200 rounded-xl flex gap-2 p-2">
+    <div className="md:hidden fixed bottom-4 inset-x-4 z-40">
+      <div className="bg-white shadow-xl shadow-black/10 border border-slate-200 rounded-xl flex gap-2 p-2">
         <a
           href="tel:2196159477"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#C5A065]/15 text-[#0B1120] font-semibold py-3 rounded-lg border border-[#C5A065]/40 hover:bg-[#C5A065]/25 transition"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#C5A065]/15 text-[#0B1120] font-semibold py-3 rounded-lg border border-[#C5A065]/40 hover:bg-[#C5A065]/25 transition focus:outline-none focus:ring-2 focus:ring-[#C5A065] focus:ring-offset-2 focus:ring-offset-white"
+          aria-label="Call Strong Homes Cleaning"
         >
-          <Phone size={18} /> Call
+          <Phone size={18} aria-hidden="true" /> Call
         </a>
         <Link
           to="/quote"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0B1120] text-white font-semibold py-3 rounded-lg hover:bg-[#0B1120]/90 transition"
+          className="flex-1 inline-flex items-center justify-center gap-2 bg-[#0B1120] text-white font-semibold py-3 rounded-lg hover:bg-[#0B1120]/90 transition focus:outline-none focus:ring-2 focus:ring-[#C5A065] focus:ring-offset-2 focus:ring-offset-white"
+          aria-label="Get a quote from Strong Homes Cleaning"
         >
-          <Sparkles size={18} /> Get Quote
+          <Sparkles size={18} aria-hidden="true" /> Get Quote
         </Link>
       </div>
     </div>

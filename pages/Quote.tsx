@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, Loader2, AlertCircle, CheckCircle, Clock, Shield, Calendar } from 'lucide-react';
+import { ChevronRight, Loader2, AlertCircle, CheckCircle, Clock, Shield, Calendar, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SeoHead } from '../SeoHead';
 import {
@@ -18,6 +18,7 @@ export default function Quote() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [rateLimitError, setRateLimitError] = useState<string | null>(null);
+  const [fallbackMode, setFallbackMode] = useState(false);
   const [selectedCity, setSelectedCity] = useState('');
   const formspreeUrl = getFormspreeUrl(LINKS.quoteFormspreeId) || BUSINESS.formSubmitUrl;
 
@@ -96,8 +97,8 @@ export default function Quote() {
           bedrooms: formData.bedrooms,
           bathrooms: formData.bathrooms,
           frequency: formData.frequency,
-          _gotcha: formData._gotcha, // Honeypot field
           _subject: `Quote: ${formData.name} - ${formData.serviceType}`,
+          _captcha: 'false'
         }),
       });
       if (!res.ok) {
@@ -108,10 +109,15 @@ export default function Quote() {
       setSubmitted(true);
     } catch (err) {
       console.error('Submission error:', err);
-      setErrors({ submit: `Error. Call ${BUSINESS.phoneDisplay}.` });
+      // Enable fallback mode instead of just showing error
+      setFallbackMode(true);
+      setErrors({ submit: `Automatic submission failed.` });
     }
     setIsSubmitting(false);
   };
+
+  // Generate mailto link for fallback
+  const mailtoLink = `mailto:${BUSINESS.email}?subject=Quote Request: ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0APhone: ${formData.phone}%0D%0AZIP: ${formData.zipCode}%0D%0AService: ${formData.serviceType}%0D%0ABedrooms: ${formData.bedrooms}%0D%0ABathrooms: ${formData.bathrooms}%0D%0AFrequency: ${formData.frequency}`;
 
   // Success state
   if (submitted) {
@@ -188,15 +194,6 @@ export default function Quote() {
                     <p className="text-sm text-slate-400">Just pricing info, no pressure</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="h-10 w-10 rounded-lg bg-[#C5A065]/20 flex items-center justify-center">
-                    <Calendar size={20} className="text-[#C5A065]" />
-                  </div>
-                  <div>
-                    <p className="font-semibold">Usually available this week</p>
-                    <p className="text-sm text-slate-400">Most customers book 3-7 days out</p>
-                  </div>
-                </div>
               </div>
 
               {/* Skip to booking */}
@@ -206,7 +203,7 @@ export default function Quote() {
                   href={LINKS.calendlyBooking}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#C5A065] font-bold hover:text-white hover:bg-[#C5A065]/20 border border-[#C5A065] rounded-lg px-4 py-2 relative z-20 transition-colors cursor-pointer"
+                  className="flex items-center gap-2 text-[#C5A065] font-bold hover:text-white hover:bg-[#C5A065]/20 border border-[#C5A065] rounded-lg px-4 py-2 relative z-20 transition-colors cursor-pointer w-fit"
                 >
                   Skip quote, pick a time →
                 </a>
@@ -229,10 +226,28 @@ export default function Quote() {
                 </div>
               )}
 
-              {errors.submit && (
-                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
-                  <AlertCircle size={18} className="text-red-600" />
-                  <p className="text-red-800 text-sm">{errors.submit}</p>
+              {/* Error / Fallback State */}
+              {(errors.submit || fallbackMode) && (
+                <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                  <div className="flex items-start gap-3 mb-3">
+                    <AlertCircle className="text-amber-600 flex-shrink-0 mt-0.5" size={20} />
+                    <div>
+                      <h3 className="text-amber-900 font-bold text-sm">Action Required</h3>
+                      <p className="text-amber-800 text-sm mt-1">
+                        Our automated form is having trouble. Please send your details via email instead.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href={mailtoLink}
+                    className="flex w-full items-center justify-center gap-2 bg-[#C5A065] text-[#0B1120] px-4 py-3 rounded-lg font-bold hover:bg-[#947638] transition-colors"
+                  >
+                    <Mail size={18} />
+                    Send via Email App
+                  </a>
+                  <p className="text-center text-xs text-amber-700 mt-2">
+                    Opens your default email app with details pre-filled.
+                  </p>
                 </div>
               )}
 
@@ -368,7 +383,8 @@ export default function Quote() {
                 <div className="flex gap-3 mt-8">
                   {step > 1 && (
                     <button type="button" onClick={() => setStep((s) => s - 1)}
-                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition">
+                      disabled={isSubmitting}
+                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition disabled:opacity-50">
                       Back
                     </button>
                   )}
