@@ -130,7 +130,7 @@ export default function Contact() {
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-slate-300 mb-3">Contact</p>
-          <h1 className="text-4xl font-bold mb-3">We're here to help</h1>
+          <h1 className="text-4xl font-bold mb-3">Contact StrongHomes Cleaning — Lake & Porter Counties</h1>
           <p className="text-lg text-slate-100">Reach out for booking questions, special requests, or service coverage.</p>
         </div>
       </section>

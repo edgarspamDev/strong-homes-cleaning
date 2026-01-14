@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strong Homes Cleaning | NWI</title>
-    <meta name="description" content="Reliable residential cleaning in Northwest Indiana. Serving Lake & Porter counties." />
-
-    <!-- Security Headers (fallback; primary set via hosting) -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://assets.calendly.com; style-src 'self' 'unsafe-inline' https://assets.calendly.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://formspree.io https://calendly.com; frame-src https://calendly.com; frame-ancestors 'none'; upgrade-insecure-requests"
-    />
-
-    <!-- Tailwind CSS is now bundled locally via src/index.css for better security -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strong Homes Cleaning | Professional & Reliable House Cleaning Services</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+        h1 { margin-bottom: 10px; }
+        .container { max-width: 600px; margin: 40px auto; padding: 20px; }
+        form { background: #ecf0f1; padding: 30px; border-radius: 8px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; }
+        button { background: #27ae60; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #229954; }
+    </style>
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+<body>
+    <header>
+        <h1>Strong Homes Cleaning</h1>
+        <p>Professional & Reliable House Cleaning Services</p>
+    </header>
+    
+    <div class="container">
+        <form>
+            <h2>Request a Cleaning Service</h2>
+            
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Home Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Service Type</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="regular">Regular Cleaning</option>
+                    <option value="deep">Deep Cleaning</option>
+                    <option value="move">Move-In/Move-Out</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
 </body>
 </html>

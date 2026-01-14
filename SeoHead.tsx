@@ -90,8 +90,36 @@ export const SeoHead: React.FC<{ override?: Partial<SeoConfig> }> = ({ override 
     url: canonicalUrl,
     image: ogImageUrl,
     telephone: '(219) 615-9477',
-    areaServed: ['Lake County, IN', 'Porter County, IN', 'Hammond', 'Hobart', 'Merrillville', 'Crown Point', 'Valparaiso', 'Schererville', 'St. John', 'Lowell'],
-    openingHours: ['Mo-Sa 08:00-18:00'],
+    email: 'info@stronghomescleaning.com',
+    areaServed: [
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Lake County, Indiana'
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Porter County, Indiana'
+      }
+    ],
+    knowsAbout: [
+      'Standard Cleaning',
+      'Deep Cleaning',
+      'Move-In/Out Cleaning'
+    ],
+    priceRange: '$$',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Service',
+      telephone: '(219) 615-9477',
+      email: 'info@stronghomescleaning.com',
+      availableLanguage: 'en'
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      opens: '08:00',
+      closes: '18:00'
+    },
     description: config.description,
   };
 

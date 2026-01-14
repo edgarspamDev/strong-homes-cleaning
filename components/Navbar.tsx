@@ -6,6 +6,7 @@ import { getBase } from '../utils/base';
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
   { to: '/services', label: 'Services' },
+  { to: '/book', label: 'Book Now' },
   { to: '/contact', label: 'Contact' },
 ];
 

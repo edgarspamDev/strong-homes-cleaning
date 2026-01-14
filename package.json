@@ -1,14 +1,15 @@
 {
   "name": "strong-homes-cleaning",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "preview:open": "vite preview --host --port 4173 --open",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "start": "npx http-server -p 8000 -o"
   },
   "dependencies": {
     "lucide-react": "^0.562.0",

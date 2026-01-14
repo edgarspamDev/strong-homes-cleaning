@@ -18,10 +18,11 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0B1120] text-white pt-16 pb-10 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120] to-[#0B1120]/95 pointer-events-none" />
-      <div className="absolute inset-0 opacity-30 pointer-events-none" style={{ background: 'radial-gradient(70% 70% at 15% 10%, rgba(197,160,101,0.18), transparent)' }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/95 to-[#1a1f2e] pointer-events-none" />
+      <div className="absolute inset-0 opacity-40 pointer-events-none" style={{ background: 'radial-gradient(80% 80% at 10% 20%, rgba(197,160,101,0.22), transparent)' }} />
+      <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ background: 'radial-gradient(60% 60% at 90% 80%, rgba(197,160,101,0.12), transparent)' }} />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
             <img src={logo} alt="StrongHomes Cleaning" className="h-12 w-auto" loading="lazy" />
             <p className="text-slate-300 text-sm leading-relaxed">
@@ -58,6 +59,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-2 border-t border-white/10">
+                <Link to="/book" className="hover:text-[#C5A065] transition-colors font-semibold">
+                  Book Now
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -82,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-slate-400 text-sm">
+        <div className="border-t border-white/10 pt-8 text-center text-slate-400 text-sm">
           <div className="flex flex-col md:flex-row gap-3 md:gap-6 justify-center items-center mb-2 md:mb-3">
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
