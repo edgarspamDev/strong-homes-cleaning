@@ -263,7 +263,7 @@ export default function Quote() {
                           key={city}
                           type="button"
                           onClick={() => handleCitySelect(city)}
-                          className={`p-3 rounded-lg border-2 text-left font-medium transition ${selectedCity === city ? 'border-[#C5A065] bg-[#C5A065]/10' : 'border-slate-200 hover:border-[#C5A065]'
+                          className={`p-3 rounded-lg border-2 text-left font-medium transition-all hover:scale-[1.02] active:scale-[0.98] ${selectedCity === city ? 'border-[#C5A065] bg-[#C5A065]/10 shadow-sm' : 'border-slate-200 hover:border-[#C5A065] hover:shadow-md'
                             }`}
                         >
                           {city}
@@ -299,7 +299,7 @@ export default function Quote() {
                           key={s.value}
                           type="button"
                           onClick={() => setFormData({ ...formData, serviceType: s.value })}
-                          className={`w-full p-4 rounded-lg border-2 text-left transition ${formData.serviceType === s.value ? 'border-[#C5A065] bg-[#C5A065]/10' : 'border-slate-200 hover:border-[#C5A065]'
+                          className={`w-full p-4 rounded-lg border-2 text-left transition-all hover:scale-[1.01] active:scale-[0.99] ${formData.serviceType === s.value ? 'border-[#C5A065] bg-[#C5A065]/10 shadow-sm' : 'border-slate-200 hover:border-[#C5A065] hover:shadow-md'
                             }`}
                         >
                           <p className="font-semibold text-[#0B1120]">{s.label}</p>
@@ -384,21 +384,21 @@ export default function Quote() {
                   {step > 1 && (
                     <button type="button" onClick={() => setStep((s) => s - 1)}
                       disabled={isSubmitting}
-                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold hover:bg-slate-50 hover:border-[#C5A065] hover:scale-[1.02] transition-all disabled:opacity-50">
+                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold transition-all hover:bg-slate-50 hover:border-[#C5A065] hover:shadow-md hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:hover:border-slate-200 disabled:hover:shadow-none cursor-pointer">
                       Back
                     </button>
                   )}
                   {step < 4 ? (
                     <button
                       type="button" onClick={handleNext} disabled={isValidatingZip}
-                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] hover:scale-[1.02] transition-all disabled:bg-slate-300 disabled:hover:bg-slate-300 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold transition-all hover:bg-[#947638] hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:bg-slate-300 disabled:hover:bg-slate-300 disabled:hover:scale-100 disabled:hover:shadow-none disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isValidatingZip ? <Loader2 className="animate-spin" size={18} /> : <>Next <ChevronRight size={18} /></>}
                     </button>
                   ) : (
                     <button
                       type="submit" disabled={isSubmitting}
-                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold hover:bg-[#0B1120]/90 hover:scale-[1.02] transition-all disabled:bg-slate-400 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold transition-all hover:bg-[#0B1120]/90 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] disabled:bg-slate-400 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none cursor-pointer flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : 'Get My Quote'}
                     </button>

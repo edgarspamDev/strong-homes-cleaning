@@ -40,7 +40,7 @@ export default function Book() {
               href={LINKS.calendlyBooking}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-[#947638] transition-colors"
+              className="inline-flex items-center justify-center gap-2 bg-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-[#947638] hover:scale-[1.02] hover:shadow-xl transition-all cursor-pointer"
             >
               <Calendar size={22} />
               Open booking calendar
@@ -48,7 +48,7 @@ export default function Book() {
             </a>
             <Link
               to="/quote"
-              className="inline-flex items-center justify-center gap-2 border-2 border-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#C5A065]/10 transition-colors"
+              className="inline-flex items-center justify-center gap-2 border-2 border-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#C5A065]/10 hover:scale-[1.02] transition-all cursor-pointer"
             >
               Not sure? Get a free quote
             </Link>
