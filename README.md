@@ -1,402 +1,82 @@
-﻿# Strong Homes Cleaning - Website
+# Strong Homes Cleaning
 
-Professional cleaning services website for Lake & Porter Counties, Indiana. Built with React, TypeScript, and Tailwind CSS, fully hardened against OWASP Top 10 vulnerabilities.
+Professional cleaning services marketing website for Lake & Porter Counties, Indiana. This modern, secure web application helps homeowners request quotes and book cleaning services.
 
-## ðŸ”’ Security Features
+Built with React, TypeScript, Vite, and Tailwind CSS with enterprise-grade security hardening.
 
-This application has been comprehensively hardened with enterprise-grade security:
+## What This Website Does
 
-- âœ… **OWASP Top 10 Compliance** - All applicable vulnerabilities addressed
-- âœ… **Input Validation & Sanitization** - All user inputs validated and sanitized
-- âœ… **Rate Limiting** - 3 submissions per 10 minutes (client-side)
-- âœ… **Honeypot Protection** - Anti-bot spam prevention
-- âœ… **ZIP Code Allowlist** - Service area enforcement (40 ZIP codes)
-- âœ… **Security Headers** - CSP, X-Frame-Options, HSTS, etc.
-- âœ… **No External CDN Dependencies** - Tailwind CSS bundled locally
-- âœ… **XSS Prevention** - No dangerouslySetInnerHTML usage
-- âœ… **HTTPS Enforcement** - Automatic redirect via .htaccess
+Strong Homes Cleaning is a lead-generation and marketing website that allows potential customers to:
 
-**Security Grade**: A+ ([SecurityHeaders.com](https://securityheaders.com))
+- **Browse Services** - View residential and commercial cleaning packages (Standard, Deep Clean, Move In/Out)
+- **Get Instant Quotes** - Fill out a multi-step form to receive pricing estimates
+- **Book Appointments** - Contact the business directly or schedule via embedded booking widget
+- **Learn About the Company** - Read about service areas, guarantees, and trust indicators
 
-See [SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md) for full audit details.
+The site is optimized for local SEO in Lake & Porter Counties, Indiana, and includes ZIP code validation to enforce the service area.
 
 ---
 
-## ðŸš€ Quick Start
+## Highlights
+- Secure multi-step quote and contact flows with validation, sanitization, honeypot, and client-side rate limiting (3 per 10 minutes)
+- Strict ZIP code allowlist to enforce Lake/Porter service area
+- Strong security headers for Hostinger and static hosts (CSP, X-Frame-Options, HSTS, etc.)
+- Zero CDN dependency for styles; minimal bundle (~100 KB gzipped)
+- HashRouter routing for static hosting; BrowserRouter-ready with existing rewrite rules
 
-### Prerequisites
+## Security Hardening
+- Input validation and sanitization on all fields (email, phone, ZIP, name, message)
+- Client-side rate limiting plus honeypot to deter spam
+- ZIP allowlist (Lake/Porter) blocks out-of-area submissions at step 1
+- Content Security Policy, clickjacking protection, and HTTPS enforcement via .htaccess/_headers
+- No dangerouslySetInnerHTML usage; no external CSS/JS CDNs
 
-- Node.js 18+ and npm
+**Security grade:** A+ (SecurityHeaders.com). See SECURITY_AUDIT_REPORT.md for the full audit.
 
-### Development
+## Tech Stack
+- React 18, TypeScript 5, Vite 6, Tailwind CSS 4, React Router 7 (HashRouter), Lucide React, React Helmet Async
+- Tooling: PostCSS, Autoprefixer
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+## Project Structure (key files)
 
-2. **Start development server:**
-   ```bash
-   npm run dev
-   ```
+- **pages/** - Page-level routes (Home, Services, Quote, Contact, Terms, Privacy)
+- **components/** - UI sections (Hero, Navbar, TrustBar, ServiceGrid, CTA, Footer)
+- **utils/** - base.ts, security.ts (validation, rate limiting, ZIP allowlist)
+- **public/** - Static assets, .htaccess, _headers, sitemap.xml, robots.txt
+- **src/index.css** - Tailwind entry and theme tokens
+- **App.tsx** - Router setup (HashRouter)
+- **index.tsx** - React entry
 
-3. **Open browser:**
-   - Navigate to `http://localhost:3000`
-   - Hot module replacement enabled
-
-### Production Build
+## Getting Started
+Prerequisites: Node.js 18+ and npm.
 
 ```bash
-npm run build
+npm install          # install dependencies
+npm run dev          # start dev server (http://localhost:3000)
+npm run build        # production build (outputs to dist/)
+npm run preview      # serve the production build locally
 ```
 
-Build output appears in `dist/` folder (~100 KB gzipped total).
-
-**Preview production build locally:**
-```bash
-npm run preview
-```
-
----
-
-## ðŸ“ Project Structure
-
-```
-strong-homes-cleaning/
-â”œâ”€â”€ pages/
-â”‚   â”œâ”€â”€ Home.tsx           # Landing page with hero section
-â”‚   â”œâ”€â”€ Services.tsx       # Services catalog
-â”‚   â”œâ”€â”€ Quote.tsx          # Multi-step quote form (ZIP validated)
-â”‚   â””â”€â”€ Contact.tsx        # Contact form (rate limited)
-â”œâ”€â”€ components/
-â”‚   â”œâ”€â”€ Navbar.tsx         # Navigation header
-â”‚   â””â”€â”€ Footer.tsx         # Site footer
-â”œâ”€â”€ utils/
-â”‚   â””â”€â”€ security.ts        # Validation, sanitization, rate limiting
-â”œâ”€â”€ src/
-â”‚   â””â”€â”€ index.css          # Tailwind CSS bundle + custom theme
-â”œâ”€â”€ public/
-â”‚   â”œâ”€â”€ .htaccess          # Security headers (Hostinger)
-â”‚   â””â”€â”€ _headers           # Security headers (Netlify/Vercel)
-â”œâ”€â”€ App.tsx                # HashRouter configuration
-â”œâ”€â”€ index.tsx              # React app entry point
-â”œâ”€â”€ index.html             # HTML template
-â”œâ”€â”€ vite.config.ts         # Vite build configuration
-â”œâ”€â”€ tailwind.config.js     # Tailwind CSS configuration
-â””â”€â”€ postcss.config.js      # PostCSS plugins
-```
-
----
-
-## ðŸŒ Deployment
-
-### Hostinger Deployment
-
-**Complete guide:** [HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md)
-
-**Quick steps:**
-
-1. Build the app:
-   ```bash
-   npm run build
-   ```
-
-2. Upload `dist/` contents to `public_html/`:
-   - Via Hostinger File Manager, or
-   - Via FTP (FileZilla, WinSCP, etc.)
-
-3. Verify `.htaccess` is uploaded (security headers)
-
-4. Enable SSL certificate in Hostinger control panel
-
-5. Test:
-   - âœ… All pages load
-   - âœ… Forms validate correctly
-   - âœ… Rate limiting works (3 per 10 min)
-   - âœ… Security headers present (`curl -I https://yourdomain.com`)
-
-### Alternative Platforms
-
-**Netlify/Vercel:** Use `public/_headers` file (already configured)
-
-**AWS S3/CloudFront:** Configure CloudFront headers to match `.htaccess`
-
----
-
-## ðŸ›¡ï¸ Security Implementation
-
-### Form Protection
-
-All forms (Contact, Quote) include:
-
-1. **Input Validation**
-   - Name: 2-100 chars, letters/spaces/hyphens only
-   - Email: RFC 5322 compliant pattern
-   - Phone: US format (10 digits)
-   - Message: 10-2000 chars
-   - ZIP: 5 digits, allowlist enforced
-
-2. **Sanitization**
-   - HTML tags stripped (`<>` removed)
-   - Control characters removed
-   - Special characters escaped
-
-3. **Abuse Protection**
-   - Rate limiting: 3 attempts per 10 minutes (localStorage)
-   - Honeypot field: `_gotcha` (hidden via CSS)
-   - Double-submit protection: Disabled button during submission
-
-4. **ZIP Code Allowlist** (Quote form)
-   - Lake County: 40+ ZIPs
-   - Porter County: 40+ ZIPs
-   - Out-of-area submissions blocked at step 1
-
-### Security Headers (.htaccess)
-
-```apache
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), microphone=(), geolocation=()
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh; ...
-```
-
-### Content Security Policy
-
-- **default-src**: 'self' only
-- **script-src**: 'self', 'unsafe-inline', esm.sh (React modules)
-- **style-src**: 'self', 'unsafe-inline' (Tailwind)
-- **img-src**: 'self', data: URIs
-- **connect-src**: 'self' only
-- **frame-ancestors**: 'none' (clickjacking prevention)
-
----
-
-## ðŸŽ¨ Tech Stack
-
-**Frontend:**
-- React 19.2.3
-- TypeScript 5.8.2
-- Tailwind CSS 4.1.18 (locally bundled)
-- React Router 7.1.4 (HashRouter)
-- Lucide React (icons)
-- React Helmet Async (SEO)
-
-**Build:**
-- Vite 6.2.0
-- PostCSS 8.5.6
-- Autoprefixer 10.4.23
-
-**Security:**
-- Custom validation utilities (utils/security.ts)
-- Apache .htaccess (security headers)
-- Client-side rate limiting (localStorage)
-
----
-
-## ðŸ“Š Performance
-
-**Bundle Sizes (gzipped):**
-- HTML: 0.64 KB
-- CSS: 6.46 KB
-- JS: 93.24 KB
-- **Total: ~100 KB**
-
-**Performance Metrics (Target):**
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Cumulative Layout Shift: < 0.1
-
-**Optimizations:**
-- GZIP compression (via .htaccess)
-- Browser caching (1 year for assets)
-- Tree-shaking (Vite)
-- Minification (Vite)
-- Local Tailwind bundle (no CDN request)
-
----
-
-## ðŸ§ª Testing
-
-### Manual Testing Checklist
-
-**Navigation:**
-- âœ… All menu links work (Home, Services, Quote, Contact)
-- âœ… HashRouter URLs work (`/#/contact`, `/#/services`, etc.)
-- âœ… No 404 errors on direct route access
-
-**Contact Form:**
-- âœ… Valid submission shows success message
-- âœ… Invalid email/phone shows error
-- âœ… Empty fields show validation errors
-- âœ… 4th submission within 10 min shows rate limit error
-- âœ… Honeypot field submission fails silently
-
-**Quote Form:**
-- âœ… Valid ZIP (46375) proceeds to step 2
-- âœ… Invalid ZIP (60601 Chicago) shows error
-- âœ… Out-of-area ZIP blocked at step 1
-- âœ… Form progress indicator updates
-- âœ… Back/Next navigation works
-
-**Security Headers:**
-```bash
-curl -I https://yourdomain.com
-```
-- âœ… X-Content-Type-Options present
-- âœ… X-Frame-Options present
-- âœ… Content-Security-Policy present
-- âœ… HTTPS redirect works (HTTP â†’ HTTPS)
-
-**Performance:**
-- âœ… No console errors
-- âœ… No CSP violations
-- âœ… All styles load correctly
-- âœ… No mixed content warnings
-
----
-
-## ðŸ“ Environment Notes
-
-### Development vs Production
-
-**Development (`npm run dev`):**
-- Base URL: `http://localhost:3000`
-- Hot module replacement enabled
-- No .htaccess applied
-- Source maps included
-
-**Production (`npm run build`):**
-- Base URL: `./` (relative paths)
-- Static files with cache headers
-- .htaccess active (security headers)
-- Assets minified and tree-shaken
-
-### HashRouter vs BrowserRouter
-
-**Current:** HashRouter
-- URLs: `https://yourdomain.com/#/contact`
-- Pros: Works without server configuration
-- Cons: Ugly URLs with `#`
-
-**Alternative:** BrowserRouter (clean URLs)
-- URLs: `https://yourdomain.com/contact`
-- Requires: .htaccess rewrite rules (already configured!)
-- To switch: Change `<HashRouter>` to `<BrowserRouter>` in [App.tsx](App.tsx)
-
----
-
-## ðŸ”§ Maintenance
-
-### Regular Tasks
-
-**Weekly:**
-- Monitor form submissions (once backend is added)
-- Check error logs
-
-**Monthly:**
-- Run `npm audit` for security vulnerabilities
-- Update dependencies if patches available
-- Verify SSL certificate renewal (Let's Encrypt auto-renews)
-
-**Quarterly:**
-- Re-run security scan (SecurityHeaders.com, Mozilla Observatory)
-- Review rate limiting effectiveness
-- Update content as needed
-
-### Updating Dependencies
-
-```bash
-# Check for outdated packages
-npm outdated
-
-# Update dependencies
-npm update
-
-# Audit for vulnerabilities
-npm audit
-
-# Fix vulnerabilities (if safe)
-npm audit fix
-```
-
----
-
-## ðŸ“– Documentation
-
-- **[SECURITY_AUDIT_REPORT.md](SECURITY_AUDIT_REPORT.md)** - Full OWASP Top 10 audit
-- **[HOSTINGER_DEPLOYMENT.md](HOSTINGER_DEPLOYMENT.md)** - Deployment guide
-- **[TAILWIND_MIGRATION.md](TAILWIND_MIGRATION.md)** - Tailwind CDN â†’ local bundle
-
----
-
-## ðŸš¨ Known Limitations
-
-### Client-Side Rate Limiting
-
-Rate limiting is implemented using `localStorage`:
-- **Can be bypassed** by clearing localStorage or using incognito mode
-- **Expected behavior** - client-side rate limiting is for UX/spam reduction
-- **Not a security boundary** - for strict enforcement, add server-side rate limiting
-
-### External Dependency
-
-- **esm.sh** remains in CSP for React modules
-- Could be eliminated by self-hosting React modules
-- Low risk - esm.sh is a trusted CDN for ES modules
-
----
-
-## ðŸŽ¯ Future Enhancements
-
-1. **Backend API:**
-   - Email notifications for form submissions
-   - Server-side validation (defense in depth)
-   - Database for lead management
-   - IP-based rate limiting
-
-2. **Analytics:**
-   - Privacy-friendly analytics (Plausible, Fathom)
-   - Track form conversion rates
-   - Monitor popular pages
-
-3. **SEO:**
-   - Submit sitemap to Google Search Console
-   - Add structured data (schema.org)
-   - Optimize meta descriptions
-
-4. **Content:**
-   - Blog section for SEO
-   - Customer testimonials
-   - Before/after photo gallery
-
----
-
-## ðŸ“„ License
-
-MIT License - see [LICENSE](LICENSE).
-
----
-
-## ðŸ†˜ Support
-
-**Technical Issues:**
-- Review documentation: SECURITY_AUDIT_REPORT.md, HOSTINGER_DEPLOYMENT.md
-- Check utils/security.ts for validation logic
-
-**Hostinger Issues:**
-- Contact Hostinger support (24/7 live chat)
-- Topics: .htaccess, SSL, file permissions
-
-**Build Issues:**
-- Check package.json for dependencies
-- Verify vite.config.ts configuration
-- Try clean install: `rm -rf node_modules package-lock.json && npm install`
-
----
-
-**Deployment Status:** âœ… PRODUCTION READY
-
-Your Strong Homes Cleaning website is fully secured, optimized, and ready to deploy!
-# strong-homes-cleaning
+## Configuration
+- VITE_CALENDLY_URL (in .env): booking link used by the booking embed.
+- To switch to BrowserRouter: change <HashRouter> to <BrowserRouter> in App.tsx. Rewrites already exist in .htaccess and public/_headers.
+
+## Deployment
+- Hostinger: follow HOSTINGER_DEPLOYMENT.md; upload dist/ to public_html/ and include .htaccess.
+- Netlify/Vercel: deploy dist/; public/_headers carries the security headers.
+- CloudFront/other static hosts: mirror headers from .htaccess or _headers.
+
+## Manual QA Checklist
+- Navigation: all routes load (/#/contact, /#/services, etc.) with no 404s.
+- Forms: valid inputs succeed; invalid email/phone/ZIP are blocked; 4th submit in 10 minutes is rate-limited; honeypot rejects bots.
+- Security headers: curl -I https://yourdomain.com shows CSP, X-Frame-Options, and HSTS/redirect.
+- Performance: no console errors or CSP violations; layout stable (no CLS).
+
+## Documentation
+- SECURITY_AUDIT_REPORT.md - security audit details
+- HOSTINGER_DEPLOYMENT.md - deployment guide
+- TAILWIND_MIGRATION.md - Tailwind bundling notes
+
+## License
+MIT License - see LICENSE.
 
