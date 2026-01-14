@@ -64,7 +64,7 @@ export default function ServiceMove() {
             <div className="bg-[#0B1120] text-white rounded-2xl p-6 shadow-lg shadow-black/20">
               <p className="text-sm text-slate-200 mb-2">Moving soon?</p>
               <h3 className="text-2xl font-bold mb-4">Book your move clean</h3>
-              <p className="text-sm text-slate-200 mb-5">Vetted teams with supplies; insurance verification in progress; appliance and cabinet interiors included.</p>
+              <p className="text-sm text-slate-200 mb-5">Vetted teams with supplies; appliance and cabinet interiors included.</p>
               <div className="space-y-3">
                 <Link
                   to="/quote"

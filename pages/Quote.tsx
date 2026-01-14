@@ -169,8 +169,8 @@ export default function Quote() {
     setIsSubmitting(true);
 
     try {
-      // Submit to Formspree (replace YOUR_QUOTE_FORM_ID with actual ID from formspree.io)
-      const response = await fetch('https://formspree.io/f/YOUR_QUOTE_FORM_ID', {
+      // Submit to FormSubmit.co (no signup required - sends to business email)
+      const response = await fetch('https://formsubmit.co/ajax/info@stronghomescleaning.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -185,8 +185,9 @@ export default function Quote() {
           bedrooms: formData.bedrooms,
           bathrooms: formData.bathrooms,
           frequency: formData.frequency,
-          _gotcha: formData._gotcha, // Honeypot
+          _honey: formData._gotcha, // Honeypot (FormSubmit uses _honey)
           _subject: `New Quote Request: ${formData.name} - ${formData.serviceType}`,
+          _template: 'table',
         }),
       });
 

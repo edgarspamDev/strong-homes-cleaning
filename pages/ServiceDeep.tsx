@@ -64,7 +64,7 @@ export default function ServiceDeep() {
             <div className="bg-[#0B1120] text-white rounded-2xl p-6 shadow-lg shadow-black/20">
               <p className="text-sm text-slate-200 mb-2">Want it pristine?</p>
               <h3 className="text-2xl font-bold mb-4">Schedule your deep clean</h3>
-              <p className="text-sm text-slate-200 mb-5">Vetted teams with supplies, HEPA vacuums, and detail tools included. Insurance status: UNKNOWN.</p>
+              <p className="text-sm text-slate-200 mb-5">Vetted teams with supplies, HEPA vacuums, and detail tools included.</p>
               <div className="space-y-3">
                 <Link
                   to="/quote"
