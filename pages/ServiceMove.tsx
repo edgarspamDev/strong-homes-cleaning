@@ -73,7 +73,7 @@ export default function ServiceMove() {
               <div className="space-y-3">
                 <Link
                   to="/quote"
-                  className="block w-full text-center bg-[#C5A065] text-[#0B1120] font-semibold py-3 rounded-lg hover:bg-[#947638] transition-colors"
+                  className="block w-full text-center bg-[#C5A065] text-[#0B1120] font-semibold py-3 rounded-lg hover:bg-[#947638] hover:scale-[1.02] transition-all"
                 >
                   Get my estimate
                 </Link>

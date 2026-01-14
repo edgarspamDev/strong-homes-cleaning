@@ -131,13 +131,13 @@ export default function Services() {
               href={LINKS.calendlyBooking}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-[#947638] transition-colors"
+              className="bg-[#C5A065] text-[#0B1120] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-[#947638] hover:scale-[1.02] hover:shadow-xl transition-all"
             >
               Book a Cleaning
             </a>
             <Link
               to="/quote"
-              className="border-2 border-[#C5A065] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#C5A065]/15 transition-colors"
+              className="border-2 border-[#C5A065] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#C5A065]/25 hover:scale-[1.02] transition-all"
             >
               Get a Free Quote
             </Link>

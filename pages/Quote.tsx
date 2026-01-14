@@ -138,7 +138,7 @@ export default function Quote() {
                 href={LINKS.calendlyBooking}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] transition"
+                className="block w-full bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] hover:scale-[1.02] transition-all"
               >
                 Book Now (Skip the Wait)
               </a>
@@ -203,7 +203,7 @@ export default function Quote() {
                   href={LINKS.calendlyBooking}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-[#C5A065] font-bold hover:text-white hover:bg-[#C5A065]/20 border border-[#C5A065] rounded-lg px-4 py-2 relative z-20 transition-colors cursor-pointer w-fit"
+                  className="flex items-center gap-2 text-[#C5A065] font-bold hover:text-white hover:bg-[#C5A065]/30 border border-[#C5A065] rounded-lg px-4 py-2 relative z-20 transition-all cursor-pointer w-fit hover:scale-[1.02]"
                 >
                   Skip quote, pick a time →
                 </a>
@@ -384,21 +384,21 @@ export default function Quote() {
                   {step > 1 && (
                     <button type="button" onClick={() => setStep((s) => s - 1)}
                       disabled={isSubmitting}
-                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold hover:bg-slate-50 transition disabled:opacity-50">
+                      className="flex-1 py-3 border-2 border-slate-200 rounded-lg font-semibold hover:bg-slate-50 hover:border-[#C5A065] hover:scale-[1.02] transition-all disabled:opacity-50">
                       Back
                     </button>
                   )}
                   {step < 4 ? (
                     <button
                       type="button" onClick={handleNext} disabled={isValidatingZip}
-                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] transition disabled:bg-slate-300 disabled:hover:bg-slate-300 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#C5A065] text-[#0B1120] py-3 rounded-lg font-bold hover:bg-[#947638] hover:scale-[1.02] transition-all disabled:bg-slate-300 disabled:hover:bg-slate-300 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isValidatingZip ? <Loader2 className="animate-spin" size={18} /> : <>Next <ChevronRight size={18} /></>}
                     </button>
                   ) : (
                     <button
                       type="submit" disabled={isSubmitting}
-                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold hover:bg-[#0B1120]/90 transition disabled:bg-slate-400 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-slate-400 flex items-center justify-center gap-2"
+                      className="flex-1 bg-[#0B1120] text-white py-3 rounded-lg font-bold hover:bg-[#0B1120]/90 hover:scale-[1.02] transition-all disabled:bg-slate-400 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? <Loader2 className="animate-spin" size={18} /> : 'Get My Quote'}
                     </button>
